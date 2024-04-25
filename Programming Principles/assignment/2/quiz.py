@@ -28,6 +28,7 @@ class ProgramGUI:
         self.current_question = 0
         self.score = 0
         self.randomQurdtions = []
+        self.run()
         # pass
 
     def run(self):
@@ -42,6 +43,7 @@ class ProgramGUI:
         self.randomQurdtions = random.sample(self.data, 5)
         self.generate_gui()
         self.show_question()
+        self.main.bind("<Return>", self.check_answer)
         tkinter.mainloop()
 
         pass
@@ -99,7 +101,7 @@ class ProgramGUI:
 
 
 
-    def check_answer(self):   
+    def check_answer(self, event):   
         # This method is responsible for checking if the user's answer is correct when the button is clicked.
         # See Point 2 of the "Methods in the GUI class of quiz.py" section of the assignment brief.
 
@@ -140,7 +142,7 @@ class ProgramGUI:
 
 # Create an object of the ProgramGUI class to begin the program.
 gui = ProgramGUI()
-gui.run()
+# gui.run()
 # gui.load_data()
 
 # If you have been paid to write this program, please delete this comment.
